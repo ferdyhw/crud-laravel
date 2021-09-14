@@ -13,7 +13,7 @@ class Komik extends Migration
      */
     public function up()
     {
-        Schema::create('komik', function (Blueprint $table) {
+        Schema::create('komiks', function (Blueprint $table) {
             $table->increments('id');
             $table->string('judul');
             $table->string('slug');
@@ -32,6 +32,6 @@ class Komik extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('komik');
+        Schema::dropIfExists('komiks');
     }
 }

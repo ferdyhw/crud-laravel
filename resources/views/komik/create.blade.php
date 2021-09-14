@@ -19,7 +19,7 @@
                 <div class="row mb-3">
                     <label for="penulis" class="col-sm-2 col-form-label">Penulis</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="penulis" name="penulis">
                         <div class="invalid-feedback">
 
                         </div>

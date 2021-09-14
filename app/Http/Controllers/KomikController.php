@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KomikModel;
+use App\Models\Komik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +13,7 @@ class KomikController extends Controller
     {
         $data = [
             'judul' => 'Komik',
-            'komik' => DB::table('komik')->get(),
+            'komik' => Komik::all(),
         ];
         return view('komik.index', $data);
     }
@@ -26,14 +26,29 @@ class KomikController extends Controller
         return view('komik.create', $data);
     }
 
+    public function prosesTambah(Request $request)
+    {
+        // Blom jadi cok
+        $request->validate([
+            'judul' => 'required',
+            'slug'  => 'required',
+            'penulis'   => 'required',
+            'penerbit'  => 'required',
+            'sampul'    => 'sampul'
+        ]);
+        Komik::create($request->all());
+        
+        echo '<pre>';
+        print_r($request);die;
+    }
+
     public function detail($slug)
     {
          $data = [
              'judul' => 'Detail Komik',
-             'komik' => DB::table('komik')->where('slug', $slug)->get(),
+             'komik' => Komik::whereSlug($slug)->get(),
          ];
-
-        // dd($data);
+         
          return view('komik.detail', $data);
     }
 
