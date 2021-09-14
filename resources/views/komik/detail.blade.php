@@ -14,7 +14,8 @@
                         <div class="card-body">
                             <h6 class="card-title">Judul : {{ $komik->judul }} </h6>
                             <p class="card-text">Penulis : {{ $komik->penulis }} </p>
-                            <p class="card-text"><small class="text-muted">Penerbit : {{ $komik->penerbit }} </small></p>
+                            <p class="card-text">Penerbit : {{ $komik->penerbit }} </p>
+                            <p class="card-text">Genre : <small class="badge bg-primary">{{ $komik->genre->nama }}</small></p>
                             <a href="/komik/ubah/{{ $komik->slug }}" class="btn btn-warning">Edit</a>
                             <form action="/komik/hapus/{{ $komik->id }}" class="d-inline">
                                 <?= csrf_field(); ?>
