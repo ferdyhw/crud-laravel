@@ -18,7 +18,7 @@
                 <th scope="row"><?= $i++; ?></th>
                 <td><img src="/assets/img/{{ $k->sampul }}" class="cover"></td>
                 <td>{{ $k->judul }}</td>
-                <td><a href="/komik/detail/{{ $k->slug }}" class="btn btn-success">Detail</a></td>
+                <td><a href="/komik/{{ $k->slug }}" class="btn btn-success">Detail</a></td>
             </tr>
         </tbody>
     <?php endforeach; ?>
