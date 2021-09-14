@@ -14,14 +14,14 @@ class Komik extends Migration
     public function up()
     {
         Schema::create('komiks', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->foreignId('genre_id');
             $table->string('judul');
             $table->string('slug');
             $table->string('penulis');
             $table->string('penerbit');
             $table->string('sampul');
-            $table->dateTime('created_at')->nullable();
-            $table->dateTime('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 
