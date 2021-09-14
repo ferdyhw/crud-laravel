@@ -29,27 +29,28 @@ class KomikController extends Controller
     public function prosesTambah(Request $request)
     {
         // Blom jadi cok
-        $request->validate([
-            'judul' => 'required',
-            'slug'  => 'required',
-            'penulis'   => 'required',
-            'penerbit'  => 'required',
-            'sampul'    => 'sampul'
-        ]);
-        Komik::create($request->all());
-        
-        echo '<pre>';
-        print_r($request);die;
+        // $request->validate([
+        //     'judul' => 'required',
+        //     'slug'  => 'required',
+        //     'penulis'   => 'required',
+        //     'penerbit'  => 'required',
+        //     'sampul'    => 'sampul'
+        // ]);
+        // Komik::create($request->all());
+
+        // echo '<pre>';
+        // print_r($request);
+        // die;
     }
 
-    public function detail($slug)
+    public function detail(Komik $post)
     {
-         $data = [
-             'judul' => 'Detail Komik',
-             'komik' => Komik::whereSlug($slug)->get(),
-         ];
-         
-         return view('komik.detail', $data);
-    }
+        $data = [
+            'judul' => 'Detail Komik',
+            'komik' => $post,
+        ];
+        // dd($data);
 
+        return view('komik.detail', $data);
+    }
 }
