@@ -23,7 +23,12 @@ Route::get('home', [HomeController::class, 'index']);
 Route::get('about', [AboutController::class, 'index']);
 Route::get('komik', [KomikController::class, 'index']);
 
-Route::get('/komik/{post:slug}', [KomikController::class, 'detail']);
+Route::get('/komik/detail/{post:slug}', [KomikController::class, 'detail']);
 
 Route::get('/komik/tambah', [KomikController::class, 'tambah']);
 Route::post('/komik/prosesTambah', [KomikController::class, 'prosesTambah']);
+
+Route::get('/komik/ubah/{post:slug}', [KomikController::class, 'ubah']);
+Route::post('/komik/prosesUbah/{post:slug}', [KomikController::class, 'prosesUbah']);
+
+Route::get('/komik/hapus/{post:id}', [KomikController::class, 'hapus']);
