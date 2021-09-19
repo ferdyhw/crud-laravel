@@ -1,6 +1,12 @@
 @extends('layouts/template')
 @section('content')
 <a href="komik/tambah" class="btn btn-primary mb-3 mt-3">Tambah Data Komik</a>
+@if ($pesan = Session::get('status'))
+<div class="alert alert-success" role="alert">
+    {{ $pesan }}
+  </div>
+    
+@endif
 <h1>Daftar Komik</h1>
 <table class="table text-center">
     <thead>
@@ -18,7 +24,7 @@
                 <th scope="row"><?= $i++; ?></th>
                 <td><img src="/assets/img/{{ $k->sampul }}" class="cover"></td>
                 <td>{{ $k->judul }}</td>
-                <td><a href="/komik/{{ $k->slug }}" class="btn btn-success">Detail</a></td>
+                <td><a href="/komik/detail/{{ $k->slug }}" class="btn btn-success">Detail</a></td>
             </tr>
         </tbody>
     <?php endforeach; ?>

@@ -1,6 +1,6 @@
 @extends('layouts/template')
 @section('content')
-<h1>Tambah Data</h1>
+<h1>Tambah Data Komik</h1>
 <div class="row">
     <div class="col-6">
         <form action="/komik/prosesTambah" method="post" enctype="multipart/form-data">
@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-sm-8">
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" name="sampul" onchange="previewImg()">
+                            <input type="file" class="form-control" name="sampul" id="sampul" onchange="previewImg()">
                             <div class="invalid-feedback">
 
                             </div>

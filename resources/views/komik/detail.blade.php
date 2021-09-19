@@ -1,6 +1,13 @@
 @extends('layouts/template')
 @section('content')
 
+@if ($pesan = Session::get('status'))
+<div class="alert alert-success" role="alert">
+    {{ $pesan }}
+  </div>
+    
+@endif
+
 <h1>Detail Komik</h1>
     <div class="row">
         <div class="col">
