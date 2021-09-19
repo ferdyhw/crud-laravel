@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Orang extends Migration
+class User extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class Orang extends Migration
      */
     public function up()
     {
-        Schema::create('orangs', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('alamat');
+            $table->string('email');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class Orang extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orangs');
+        Schema::dropIfExists('users');
     }
 }
