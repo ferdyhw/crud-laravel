@@ -31,7 +31,7 @@ class KomikController extends Controller
         $judul = $request->judul;
         $slug = str_replace(' ', '-', strtolower($judul));
 
-        Komik::create([
+        DB::table('komiks')->insert([
             'judul' => $request->judul,
             'slug' => $slug,
             'genre_id' => mt_rand(1, 3),
@@ -69,7 +69,7 @@ class KomikController extends Controller
     public function detail(Komik $post)
     {
         $data = [
-            'judul' => 'Detail Komik',
+            'judul' => 'Detail Data Komik',
             'komik' => $post,
         ];
         // dd($data);
