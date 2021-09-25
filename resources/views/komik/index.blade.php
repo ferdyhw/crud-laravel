@@ -7,7 +7,7 @@
   </div>
     
 @endif
-<h1>Daftar Komik</h1>
+<h1>Daftar Data Komik</h1>
 <table class="table text-center">
     <thead>
         <tr>
