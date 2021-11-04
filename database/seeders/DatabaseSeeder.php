@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\Orang::factory(10)->create();
 
-        Komik::factory(10)->create();
+        Komik::factory(20)->create();
 
         Genre::create([
             'nama' => 'Comedy',
