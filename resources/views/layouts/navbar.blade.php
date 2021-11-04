@@ -6,9 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link <?= $judul == 'Home' ? 'active' : ''; ?>" aria-current="page" href="/home">Home</a>
-                <a class="nav-link <?= $judul == 'About' ? 'active' : ''; ?>" href="/about">About</a>
-                <a class="nav-link <?= $judul == 'Komik' ? 'active' : ''; ?>" href="/komik">Komik</a>
+                <a class="nav-link <?= $active == 'Home' ? 'active' : ''; ?>" aria-current="page" href="/home">Home</a>
+                <a class="nav-link <?= $active == 'About' ? 'active' : ''; ?>" href="/about">About</a>
+                <a class="nav-link <?= $active == 'Komik' ? 'active' : ''; ?>" href="/komik">Komik</a>
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>
             </div>
         </div>

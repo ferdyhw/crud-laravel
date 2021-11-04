@@ -9,7 +9,8 @@ class AboutController extends Controller
     public function index()
     {
         $data = [
-            'judul' => 'About',
+            'judul' => 'App Laravel | About',
+            'active' => 'About',
         ];
 
         return view('about.index', $data);
