@@ -37,13 +37,27 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label for="penerbit" class="col-sm-2 col-form-label">Genre</label>
+                    <div class="col-sm-10">
+                        <select class="form-select" name="genre_id" id="genre_id" aria-label="Default select example">
+                            <option selected value="<?= null ?>">--Pilih--</option>
+                            <option value="1" {{ ($komik->genre_id == '1') ? 'selected' : '' }}>Comedy</option>
+                            <option value="2" {{ ($komik->genre_id == '2') ? 'selected' : '' }}>Drama</option>
+                            <option value="3" {{ ($komik->genre_id == '3') ? 'selected' : '' }}>Horror</option>
+                          </select>
+                          <div class="invalid-feedback">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="sampul" class="col-sm-2 col-form-label">Cover</label>
                     <div class="col-sm-2">
                         <img src="{{ asset('assets/img/'.$komik->sampul) }}" class="img-thumbnail img-preview">
                     </div>
                     <div class="col-sm-8">
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" value="{{ $komik->sampul }}" name="sampul" id="sampul" onchange="previewImg()">
+                            <input type="file" class="form-control" value="{{ $komik->sampul }}" name="sampul" id="sampul" disabled onchange="previewImg()">
                             <div class="invalid-feedback">
 
                             </div>

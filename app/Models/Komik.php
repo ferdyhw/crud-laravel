@@ -15,4 +15,12 @@ class Komik extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
+    public function scopeFilter($query)
+    {
+        if(request('search')) {
+            return $query->where('judul', 'like', '%' . request('search') . '%')
+                        ->orWhere('genre_id', 'like', '%' . request('search') . '%');
+        }
+    }
 }

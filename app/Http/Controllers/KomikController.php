@@ -12,8 +12,9 @@ class KomikController extends Controller
     public function index()
     {
         $data = [
-            'judul' => 'Komik',
-            'komik' => Komik::all(),
+            'judul' => 'App Laravel | Komik',
+            'active' => 'Komik',
+            'komik' =>Komik::latest()->filter()->get(),
         ];
         return view('komik.index', $data);
     }
@@ -21,7 +22,8 @@ class KomikController extends Controller
     public function tambah()
     {
         $data = [
-            'judul' => 'Tambah Data Komik',
+            'judul' => 'App Laravel | Tambah Data Komik',
+            'active' => null,
         ];
         return view('komik.create', $data);
     }
@@ -31,14 +33,16 @@ class KomikController extends Controller
         $judul = $request->judul;
         $slug = str_replace(' ', '-', strtolower($judul));
 
-        DB::table('komiks')->insert([
+        $data = [     
             'judul' => $request->judul,
             'slug' => $slug,
-            'genre_id' => mt_rand(1, 3),
+            'genre_id' => $request->genre_id,  //mt_rand(1, 3),
             'penulis' => $request->penulis,
             'penerbit' => $request->penerbit,
-            'sampul' => $request->sampul
-        ]);
+            'sampul' => 'default.png'
+        ];
+        // dd($data);
+        DB::table('komiks')->insert($data);
 
         return redirect('/komik')->with('status', 'Data komik berhasil ditambahkan.');
     }
@@ -46,7 +50,8 @@ class KomikController extends Controller
     public function ubah(Komik $post)
     {
         $data = [
-            'judul' => 'Ubah Data Komik',
+            'judul' => 'App Laravel | Ubah Data Komik',
+            'active' => null,
             'komik' => $post,
         ];
         return view('komik.update', $data);
@@ -54,22 +59,25 @@ class KomikController extends Controller
 
     public function prosesUbah(Request $request, Komik $post)
     {
-        DB::table('komiks')->where('slug', $post->slug)->update([
+        $data = [
             'genre_id' => $request->genre_id,
             'judul' => $request->judul,
             'slug' => $request->slug,
             'penulis' => $request->penulis,
             'penerbit' => $request->penerbit,
-            'sampul' => $request->sampul
-        ]);
+            'sampul' => 'default.png'
+        ];
+        // dd($data);
+        DB::table('komiks')->where('slug', $post->slug)->update($data);
 
-        return redirect('/komik')->with('status', 'Data komik berhasil diubah.');
+        return redirect('/komik/detail/'.$post->slug)->with('status', 'Data komik berhasil diubah.');
     }
 
     public function detail(Komik $post)
     {
         $data = [
-            'judul' => 'Detail Data Komik',
+            'judul' => 'App Laravel | Detail Data Komik',
+            'active' => null,
             'komik' => $post,
         ];
         // dd($data);

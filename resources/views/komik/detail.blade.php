@@ -2,10 +2,14 @@
 @section('content')
 
 @if ($pesan = Session::get('status'))
-<div class="alert alert-success" role="alert">
-    {{ $pesan }}
-  </div>
-    
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ $pesan }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>  
+    </div>
+</div>
 @endif
 
 <h1>Detail Data Komik</h1>
